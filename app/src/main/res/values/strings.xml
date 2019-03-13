@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">demo1</string>
+    <string name="app_name">Driver health partner</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">此处填写昵称</string>
@@ -8,7 +8,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">主页</string>
+    <string name="title_dashboard">健康</string>
+    <string name="title_notifications">精选</string>
 </resources>
