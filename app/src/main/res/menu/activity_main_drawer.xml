@@ -4,10 +4,14 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+        <style>
+
+        </style>
         <item
             android:id="@+id/nav_camera"
             android:icon="@mipmap/call"
-            android:title="紧急求助电话" />
+            android:title="紧急求助电话"
+            />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@mipmap/message"
@@ -20,6 +24,17 @@
             android:id="@+id/nav_manage"
             android:icon="@mipmap/modify"
             android:title="个人信息修改" />
+
+        <item
+            android:title=" "/>
+
+        <item
+            android:title=" "/>
+        <item
+            android:id="@+id/nav_weather"
+            android:icon="@mipmap/health"
+            android:title="这里添加天气布局" />
+        <!--可以使用actionLayout-->
     </group>
 
 </menu>
