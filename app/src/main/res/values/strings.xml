@@ -6,7 +6,6 @@
     <string name="nav_header_subtitleSignal">此处填写个性签名</string>
     <string name="nav_header_subtitleScore">此处填写积分</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
     <string name="title_home">主页</string>
     <string name="title_dashboard">健康</string>
