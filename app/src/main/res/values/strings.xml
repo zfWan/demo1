@@ -7,7 +7,11 @@
     <string name="nav_header_subtitleScore">此处填写积分</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    <!--底部菜单栏字符串配置-->
     <string name="title_home">主页</string>
     <string name="title_dashboard">健康</string>
     <string name="title_notifications">精选</string>
+
+    <!--健康页面字符串配置-->
+    <string name="title_health_head">健康保护与疾病预防</string>
 </resources>

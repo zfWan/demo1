@@ -10,12 +10,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView mTextMessage;
+    private TextView mTextMessage1,mTextMessage2,mTextMessage3;
+    private View first,second,third;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -24,13 +26,22 @@ public class MainActivity extends AppCompatActivity
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    mTextMessage1.setText(R.string.title_home);
+                    first.setVisibility(View.VISIBLE);
+                    second.setVisibility(View.GONE);
+                    third.setVisibility(View.GONE);
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    mTextMessage2.setText(R.string.title_dashboard);
+                    first.setVisibility(View.GONE);
+                    second.setVisibility(View.VISIBLE);
+                    third.setVisibility(View.GONE);
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                    mTextMessage3.setText(R.string.title_notifications);
+                    first.setVisibility(View.GONE);
+                    second.setVisibility(View.GONE);
+                    third.setVisibility(View.VISIBLE);
                     return true;
             }
             return false;
@@ -44,6 +55,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -57,7 +69,12 @@ public class MainActivity extends AppCompatActivity
 
 
 //     底部导航栏
-        mTextMessage = (TextView) findViewById(R.id.message);
+        mTextMessage1 = (TextView) findViewById(R.id.message1);
+        mTextMessage2 = (TextView) findViewById(R.id.message2);
+        mTextMessage3 = (TextView) findViewById(R.id.message3);
+        first = findViewById(R.id.first_main);
+        second = findViewById(R.id.second_main);
+        third = findViewById(R.id.third_main);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
