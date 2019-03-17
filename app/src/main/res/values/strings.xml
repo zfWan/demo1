@@ -14,4 +14,16 @@
 
     <!--健康页面字符串配置-->
     <string name="title_health_head">健康保护与疾病预防</string>
+    <string name="personal_medical_history">个人病历</string>
+    <string name="diabetes">糖尿病</string>
+    <string name="heart_disease">心脏病</string>
+    <string name="High_blood_pressure">高血压</string>
+    <string name="wait">等等</string>
+    <string name="jingzhui">颈椎</string>
+    <string name="relative_datas">相关数据采集</string>
+    <string name="breath_pine">呼吸</string>
+    <string name="lung_pneumonia">肺炎等等</string>
+
+    <!--精选页面字符串配置-->
+    <string name="title_more_head">更多功能</string>
 </resources>

@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    private TextView mTextMessage1,mTextMessage2,mTextMessage3;
     private View first,second,third;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -26,19 +24,16 @@ public class MainActivity extends AppCompatActivity
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage1.setText(R.string.title_home);
                     first.setVisibility(View.VISIBLE);
                     second.setVisibility(View.GONE);
                     third.setVisibility(View.GONE);
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage2.setText(R.string.title_dashboard);
                     first.setVisibility(View.GONE);
                     second.setVisibility(View.VISIBLE);
                     third.setVisibility(View.GONE);
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage3.setText(R.string.title_notifications);
                     first.setVisibility(View.GONE);
                     second.setVisibility(View.GONE);
                     third.setVisibility(View.VISIBLE);
@@ -69,9 +64,6 @@ public class MainActivity extends AppCompatActivity
 
 
 //     底部导航栏
-        mTextMessage1 = (TextView) findViewById(R.id.message1);
-        mTextMessage2 = (TextView) findViewById(R.id.message2);
-        mTextMessage3 = (TextView) findViewById(R.id.message3);
         first = findViewById(R.id.first_main);
         second = findViewById(R.id.second_main);
         third = findViewById(R.id.third_main);
