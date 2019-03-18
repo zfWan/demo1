@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/title"
+        android:textColor="#0000ff"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="15dp"
+        android:text="@string/username"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edt_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_username"
+        android:layout_toRightOf="@+id/tv_username"
+        android:hint="@string/input_username"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_username"
+        android:layout_marginTop="20dp"
+        android:text="@string/password"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_password"
+        android:layout_alignLeft="@+id/edt_username"
+        android:layout_toRightOf="@+id/tv_password"
+        android:hint="@string/input_password"
+        android:inputType="textPassword"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_password"
+        android:layout_marginTop="20dp"
+        android:text="@string/phone"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edt_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_phone"
+        android:layout_alignLeft="@+id/edt_password"
+        android:layout_toRightOf="@+id/tv_phone"
+        android:hint="@string/input_phone"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_phone"
+        android:layout_marginTop="20dp"
+        android:text="@string/email"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_email"
+        android:layout_alignLeft="@+id/edt_phone"
+        android:hint="@string/input_email"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_email"
+        android:layout_marginTop="20dp"
+        android:text="@string/gender"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/rg_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edt_email"
+        android:layout_alignTop="@+id/tv_gender"
+        android:layout_toRightOf="@+id/tv_gender"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:checked="true"
+            android:text="@string/male"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rb_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_hobby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_gender"
+        android:layout_marginTop="20dp"
+        android:text="@string/hobby"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/cb_travel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_hobby"
+        android:layout_alignLeft="@+id/rg_gender"
+        android:layout_toRightOf="@+id/tv_hobby"
+        android:text="@string/travel"
+        android:textSize="18sp" />
+
+    <CheckBox
+        android:id="@+id/cb_music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/cb_travel"
+        android:layout_toRightOf="@+id/cb_travel"
+        android:text="@string/music"
+        android:textSize="18sp" />
+
+    <CheckBox
+        android:id="@+id/cb_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/cb_music"
+        android:layout_toRightOf="@id/cb_music"
+        android:text="@string/food"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_hobby"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#00aa00"
+        android:onClick="doSubmit"
+        android:text="@string/submit"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_hobby"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#00aa00"
+        android:text="@string/reset"
+        android:textColor="#ffffff" />
+</RelativeLayout>

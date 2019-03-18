@@ -1,5 +1,6 @@
 package com.example.demo1;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,11 +8,14 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,13 +92,45 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            // 弹出修改对话框
+            new AlertDialog.Builder(this)
+                    .setTitle("请输入紧急求助电话：")
+                    .setIcon(android.R.drawable.ic_menu_call)
+                    .setView(new EditText(this))
+                    .setPositiveButton("确定", null)
+                    .setNegativeButton("取消", null)
+                    .show();
         } else if (id == R.id.nav_gallery) {
-
+            new AlertDialog.Builder(this)
+                    .setTitle("请输入求助短信内容：")
+                    .setIcon(android.R.drawable.ic_menu_set_as)
+                    .setView(new EditText(this))
+                    .setPositiveButton("确定", null)
+                    .setNegativeButton("取消", null)
+                    .show();
         } else if (id == R.id.nav_slideshow) {
-
+            //    指定下拉列表的显示数据
+            final String[] settings = {"手动报警", "自动报警", "智能报警"};
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_menu_manage)
+                    .setTitle("请选择你的设置：")
+                    .setItems(settings, new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+                            Toast.makeText(MainActivity.this, "设置为：" + settings[which], Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .show();
         } else if (id == R.id.nav_manage) {
-
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_menu_manage)
+                    .setTitle("个人信息管理：")
+                    .setView(R.layout.personal_info_management)
+                    .setPositiveButton("完成",null)
+                    .setNegativeButton("取消",null)
+                    .show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

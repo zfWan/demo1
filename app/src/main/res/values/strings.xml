@@ -26,4 +26,25 @@
 
     <!--精选页面字符串配置-->
     <string name="title_more_head">更多功能</string>
+
+
+    <!--个人信息管理页面字符串配置-->
+    <string name="title">注册个人信息</string>
+    <string name="username">用户名：</string>
+    <string name="input_username">请输入用户名</string>
+    <string name="password">密码：</string>
+    <string name="input_password">请输入密码</string>
+    <string name="phone">电话：</string>
+    <string name="input_phone">请输入电话号码</string>
+    <string name="email">邮箱：</string>
+    <string name="input_email">请输入邮箱</string>
+    <string name="gender">性别：</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="hobby">兴趣：</string>
+    <string name="travel">旅行</string>
+    <string name="music">音乐</string>
+    <string name="food">美食</string>
+    <string name="submit">提交</string>
+    <string name="reset">重置</string>
 </resources>

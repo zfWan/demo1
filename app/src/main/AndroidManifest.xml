@@ -27,6 +27,9 @@
         <activity android:name=".SecondMainActivity">
 
         </activity>
+        <activity android:name=".PersonalInfoManActivity">
+
+        </activity>
     </application>
 
 </manifest>
