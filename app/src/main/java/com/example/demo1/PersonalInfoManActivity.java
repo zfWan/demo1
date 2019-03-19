@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class PersonalInfoManActivity extends Activity {
@@ -41,22 +42,6 @@ public class PersonalInfoManActivity extends Activity {
         cbTravel = (CheckBox) findViewById(R.id.cb_travel);
         cbMusic = (CheckBox) findViewById(R.id.cb_music);
         cbFood = (CheckBox) findViewById(R.id.cb_food);
-
-        button_reset = findViewById(R.id.btn_reset);
-        button_reset.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("你是谁——+*******************？");
-                edtUsername.setText("");
-                edtPassword.setText("");
-                edtPhone.setText("");
-                edtEmail.setText("");
-                rbMale.setChecked(true);
-                cbTravel.setChecked(false);
-                cbMusic.setChecked(false);
-                cbFood.setChecked(false);
-            }
-        });
     }
 
     /**
@@ -109,19 +94,4 @@ public class PersonalInfoManActivity extends Activity {
         startActivity(intent);
     }
 
-    /**
-     * 重置事件处理方法
-     *
-     * @param view
-     */
-    public void doReset(View view) {
-        edtUsername.setText("");
-        edtPassword.setText("");
-        edtPhone.setText("");
-        edtEmail.setText("");
-        rbMale.setChecked(true);
-        cbTravel.setChecked(false);
-        cbMusic.setChecked(false);
-        cbFood.setChecked(false);
-    }
 }

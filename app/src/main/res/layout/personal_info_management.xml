@@ -171,7 +171,6 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="20dp"
         android:background="#00aa00"
-        android:onClick="doSubmit"
         android:text="@string/submit"
         android:textColor="#ffffff" />
 
