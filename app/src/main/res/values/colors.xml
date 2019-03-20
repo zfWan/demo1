@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#2196F3</color> //顶部状态栏颜色
     <color name="colorAccent">#D81B60</color>
 
-    <!--底部导航-->
-    <!--<color name="colorPrimary">#3F51B5</color>-->
-    <!--<color name="colorPrimaryDark">#303F9F</color>-->
-    <!--<color name="colorAccent">#FF4081</color>-->
+    <!--登录注册-->
+    <color name="i8_light_black">#333333</color>
+    <color name="i8_login_edit_hint">#ababab</color>
+    <color name="i8_white_f3">#99d0f3</color>
 </resources>

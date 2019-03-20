@@ -47,4 +47,12 @@
     <string name="food">美食</string>
     <string name="submit">提交</string>
     <string name="reset">重置</string>
+
+    <!--登录注册字符串页面配置-->
+    <string name="accountRegister_input_nickname">请输入你的昵称</string>
+    <string name="accountLogin_input_password_hint">请输入密码</string>
+    <string name="accountRegister_input_password_again_hint">请再次输入密码</string>
+    <string name="login">登录</string>
+    <string name="accountLogin_input_name_hint">请输入帐号</string>
+
 </resources>
