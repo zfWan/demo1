@@ -1,12 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <TextView
+                android:layout_marginLeft="25dp"
+                android:text="您的疲劳值: "/>
+            <TextView
+                android:id="@+id/pilao"
+                />
+            <TextView
+                android:layout_marginLeft="60dp"
+                android:text="您的综合评分: "/>
+            <TextView
+                android:id="@+id/zonghe"/>
+        </TableRow>
+    </TableLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+            <com.timqi.sectorprogressview.ColorfulRingProgressView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/zanshi"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                app:bgColor="#e1e1e1"
+                app:fgColorEnd="#ff4800"
+                app:fgColorStart="#ffe400"
+                app:startAngle="0"
+                app:strokeWidth="11dp"
+
+                />
+            <com.timqi.sectorprogressview.ColorfulRingProgressView
+                android:id="@+id/zanshi2"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="20dp"
+                app:bgColor="#e1e1e1"
+                app:fgColorEnd="#ff4800"
+                app:fgColorStart="#ffe400"
+                app:startAngle="0"
+                app:strokeWidth="11dp"
+                android:layout_marginHorizontal="25dp"
+                />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <TableRow>
+
+            <Button
+                android:id="@+id/xinlv"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimaryDark"
+                android:clickable="true"
+                android:text="心率"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/xueya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimaryDark"
+                android:drawableLeft="@mipmap/message"
+                android:text="血压"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/huxi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimaryDark"
+                android:drawableLeft="@mipmap/message"
+                android:text="呼吸"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </TableRow>
+        <TableRow>
+
+            <Button
+                android:id="@+id/zs1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimaryDark"
+                android:drawableLeft="@mipmap/message"
+                android:text="心率"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/zs2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:drawableLeft="@mipmap/message"
+                android:background="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                android:text="血压"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/zs3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:drawableLeft="@mipmap/message"
+                android:background="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                android:text="呼吸"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </TableRow>
+    </TableLayout>
+    <com.github.mikephil.charting.charts.LineChart
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:id="@+id/chart">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_X"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_Y"/>
+    </com.github.mikephil.charting.charts.LineChart>
 
     <TextView
         android:id="@+id/message1"
@@ -15,9 +177,57 @@
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/title_home"
+        android:text="Tips:"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-</android.support.constraint.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:scrollbarStyle="outsideOverlay" android:background="@android:drawable/edit_text">
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="1、横向ListView的所有实现思路;2、其中一个最通用的思路HorizontalListView，并基于横向ListView开发一个简单的相册；
+这是使用Fragment最简单的一种方式，把Fragment当成普通的控件，直接写在Activity的布局文件中。步骤：
+
+- 继承Fragment，重写onCreateView决定Fragemnt的布局
+
+- 在Activity中声明此Fragment，就当和普通的View一样
+
+使用2个Fragment作为Activity的布局，一个Fragment用于标题布局，一个Fragment用于内容布局
+
+1、新建项目Fragments3
+
+创建一个Fragment类TitleFragment.java（与之前相同）， 为Fragment创建布局文件fragment_title.xml
+---------------------
+作者：飘渺仙缘
+来源：CSDN
+原文：https://blog.csdn.net/gumufuyun/article/details/83243080
+版权声明：本文为博主原创文章，转载请附上博文链接！1、横向ListView的所有实现思路;
+
+2、其中一个最通用的思路HorizontalListView，并基于横向ListView开发一个简单的相册；
+
+3、实现的横向ListView在点击、浏览时item背景会变色，并解决了listview里setSelected造成item的选择状态混乱的问题。
+
+众所周知，ListView默认的方向是垂直的，但有些时候人们更喜欢横向ListView。纵观整个网络，横向ListView的实现思路如下:
+---------------------
+作者：yanzi1225627
+来源：CSDN
+原文：https://blog.csdn.net/yanzi1225627/article/details/21294553
+版权声明：本文为博主原创文章，转载请附上博文链接！
+"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+    </ScrollView>
+
+</LinearLayout>

@@ -3,6 +3,7 @@ package com.example.demo1;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -24,9 +25,29 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ViewPortHandler;
+import com.timqi.sectorprogressview.ColorfulRingProgressView;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private View first,second,third;
+    public com.timqi.sectorprogressview.ColorfulRingProgressView pilao;
+    public com.timqi.sectorprogressview.ColorfulRingProgressView zonghe;
+    TextView pilaotext;
+    TextView zonghetext;
+    float pilaonum=40;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -72,7 +93,17 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        pilao=(ColorfulRingProgressView) findViewById(R.id.zanshi);
+        zonghe=(ColorfulRingProgressView)findViewById(R.id.zanshi2);
+        pilaotext=(TextView)findViewById(R.id.pilao);
+        zonghetext=(TextView)findViewById(R.id.zonghe);
+//     底部导航栏
 
+        chart();
+        pilao.setPercent(pilaonum);
+        pilaotext.setText(Float.toString(pilaonum));
+        zonghe.setPercent(89);
+        zonghetext.setText("80");
 //        可删
 
         String str =getIntent().getStringExtra("username");
@@ -86,6 +117,20 @@ public class MainActivity extends AppCompatActivity
         third = findViewById(R.id.third_main);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        Button xinlv=(Button) findViewById(R.id.xinlv);
+        StringBuilder xinlvzonghe=new StringBuilder();
+        xinlvzonghe.append("心率");
+        xinlvzonghe.append(Float.toString(pilaonum));
+        xinlv.setText(xinlvzonghe);
+        xinlv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast=Toast.makeText(MainActivity.this,"您已经绘制心率图",Toast.LENGTH_SHORT);
+////                toast.setGravity(Gravity.LEFT,50,0);
+                toast.show();
+                chartxinlv();
+            }
+        });
     }
 
     @Override
@@ -230,5 +275,201 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public void chart(){
+        LineChart lineChart = (LineChart) findViewById(R.id.chart);
+        ArrayList<Entry> entries = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+
+            float val = (float) (Math.random() * 2) - 3;
+            entries.add(new Entry(i, val));
+        }
+        //List<Entry> entries = new ArrayList<>();
+
+
+        List<Entry> entries2 = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+
+            float val2 = (float) (Math.random() * 10) - 30;
+            entries2.add(new Entry(i, val2));
+        }
+
+        //给这条线起个名字，并对文字颜色、大小做一些设置
+        LineDataSet dataSet = new LineDataSet(entries, "数据一");
+        dataSet.setColor(Color.BLUE);//线的颜色
+        //格式化值
+        dataSet.setValueFormatter(new IValueFormatter() {
+
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+                return value + "元";
+            }
+        });
+        //数据二
+        LineDataSet dataSet2 = new LineDataSet(entries2, "数据二");
+        dataSet2.setColor(Color.GREEN);//线的颜色
+
+        //装入集合
+        List<ILineDataSet> iLineDataSets = new ArrayList<>();
+        iLineDataSets.add(dataSet);
+        iLineDataSets.add(dataSet2);
+
+        //如果是只显示一条线，直接传dataSet就可以了
+        LineData lineData = new LineData(iLineDataSets);
+        //设置边框是否绘制，边框线的粗细
+        //chart.setDrawBorders(true);
+        //chart.setBorderWidth(1);
+
+        /*图表的缩放*/
+        //图表是否允许Y轴缩放
+        lineChart.setScaleYEnabled(false);
+        //chart.setScaleEnabled(true);   // 两个轴上的缩放,X,Y分别默认为true
+        // chart.setScaleXEnabled(true);  // X轴上的缩放,默认true
+        // chart.setScaleYEnabled(true);  // Y轴上的缩放,默认true
+        // chart.setPinchZoom(true);  // X,Y轴同时缩放
+        // chart.setDoubleTapToZoomEnabled(true); // 双击缩放,默认true
+
+        /*设置右下角的文本描述,文字大小、颜色、内容等*/
+        Description description = new Description();
+        description.setText("产量表");
+        description.setEnabled(true);//是否显示右下角文字信息
+        lineChart.setNoDataText("暂无数据"); // 没有数据时显示的内容
+        lineChart.setDescription(description);
+
+        /*轴与网格线*/
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setDrawLabels(true);//x轴上的数值是否显示
+        xAxis.setDrawAxisLine(true);//是否绘制X轴
+        xAxis.setDrawGridLines(false);//是否绘制X轴的网格线
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);//X轴的位置
+        lineChart.getAxisRight().setEnabled(false);//取消y轴的右侧
+        lineChart.getAxisLeft().setDrawGridLines(false);//是否绘制Y轴的网格线
+
+        /*设置点击数据点后的弹窗*/
+        //传入一个自定义的布局
+        //final MarkerView markerView = new MarkerView(MainActivity.this, R.layout.first_main);
+        //lineChart.setMarker(markerView);
+        lineChart.setData(lineData);//装载数据
+        lineChart.invalidate();
+        //final TextView tv_X = markerView.findViewById(R.id.tv_X);
+        //final TextView tv_Y = markerView.findViewById(R.id.tv_Y);
+        //设置数据点点击事件，这里是更新弹窗中的信息
+//        lineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+//            @Override
+//            public void onValueSelected(Entry e, Highlight h) {
+//                //tv_X.setText(e.getX() + "");
+//                tv_Y.setText(e.getY() + "");
+//            }
+//
+//            @Override
+//            public void onNothingSelected() {
+//                tv_Y.setText(" ");
+//
+//            }
+//        } );
+    }
+    public void chartxinlv(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        //builder.setIcon(R.drawable.ceshi1);
+        builder.setTitle("绘制图片");
+        //    通过LayoutInflater来加载一个xml的布局文件作为一个View对象
+        final View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.chart, null);
+        final LineChart lineChart ;
+        lineChart= (LineChart) view.findViewById(R.id.chart2);
+        final ArrayList<Entry> entries = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+
+            //float val = (float) (Math.random() * 2) + 10;
+            entries.add(new Entry(i, i+1));
+        }
+
+
+        final List<Entry> entries2 = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+
+            float val2 = (float) (Math.random() * 10) + 90;
+            entries2.add(new Entry(i, val2));
+        }
+
+        //给这条线起个名字，并对文字颜色、大小做一些设置
+        LineDataSet dataSet = new LineDataSet(entries, "数据一");
+        dataSet.setColor(Color.BLUE);//线的颜色
+        //格式化值
+        dataSet.setValueFormatter(new IValueFormatter() {
+
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+                return value + "元";
+            }
+        });
+        //数据二
+        LineDataSet dataSet2 = new LineDataSet(entries2, "数据二");
+        dataSet2.setColor(Color.GREEN);//线的颜色
+
+        //装入集合
+        List<ILineDataSet> iLineDataSets = new ArrayList<>();
+        iLineDataSets.add(dataSet);
+        iLineDataSets.add(dataSet2);
+
+        //如果是只显示一条线，直接传dataSet就可以了
+        LineData lineData = new LineData(iLineDataSets);
+        //设置边框是否绘制，边框线的粗细
+        //chart.setDrawBorders(true);
+        //chart.setBorderWidth(1);
+
+        /*图表的缩放*/
+        //图表是否允许Y轴缩放
+        lineChart.setScaleYEnabled(false);
+        //chart.setScaleEnabled(true);   // 两个轴上的缩放,X,Y分别默认为true
+        // chart.setScaleXEnabled(true);  // X轴上的缩放,默认true
+        // chart.setScaleYEnabled(true);  // Y轴上的缩放,默认true
+        // chart.setPinchZoom(true);  // X,Y轴同时缩放
+        // chart.setDoubleTapToZoomEnabled(true); // 双击缩放,默认true
+
+        /*设置右下角的文本描述,文字大小、颜色、内容等*/
+        Description description = new Description();
+        description.setText("产量表");
+        description.setEnabled(false);//是否显示右下角文字信息
+        lineChart.setNoDataText("暂无数据"); // 没有数据时显示的内容
+        lineChart.setDescription(description);
+
+        /*轴与网格线*/
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setDrawLabels(true);//x轴上的数值是否显示
+        xAxis.setDrawAxisLine(true);//是否绘制X轴
+        xAxis.setDrawGridLines(false);//是否绘制X轴的网格线
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);//X轴的位置
+        lineChart.getAxisRight().setEnabled(false);//取消y轴的右侧
+        lineChart.getAxisLeft().setDrawGridLines(false);//是否绘制Y轴的网格线
+
+        /*设置点击数据点后的弹窗*/
+        //传入一个自定义的布局
+        //final MarkerView markerView = new MarkerView(MainActivity.this, R.layout.activity_main);
+        //lineChart.setMarker(markerView);
+        lineChart.setData(lineData);//装载数据
+        lineChart.invalidate();
+        //    设置我们自己定义的布局文件作为弹出框的Content
+        builder.setView(view);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+
+                //    将输入的用户名和密码打印出来
+                Toast.makeText(MainActivity.this, "end" , Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+
+            }
+        });
+        builder.show();
     }
 }
