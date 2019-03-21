@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     TextView zonghetext;
     float pilaonum=40;
 
-
+//底部菜单栏监听
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -104,12 +104,6 @@ public class MainActivity extends AppCompatActivity
         pilaotext.setText(Float.toString(pilaonum));
         zonghe.setPercent(89);
         zonghetext.setText("80");
-//        可删
-
-        String str =getIntent().getStringExtra("username");
-        TextView textView =findViewById(R.id.textView_health_32);
-        textView.setText(str);
-
 
 //     底部导航栏
         first = findViewById(R.id.first_main);
@@ -187,17 +181,17 @@ public class MainActivity extends AppCompatActivity
             final View view = inflater.inflate(R.layout.personal_info_management, null);
 
 //          获取控件
-            final EditText edtUsername = view.findViewById(R.id.edt_username);
-            final EditText edtPassword = view.findViewById(R.id.edt_password);
-            final EditText edtPhone = view.findViewById(R.id.edt_phone);
-            final EditText edtEmail = view.findViewById(R.id.edt_email);
-            final RadioGroup rgGender = view.findViewById(R.id.rg_gender);
-            final RadioButton rbMale = view.findViewById(R.id.rb_male);
-            final CheckBox cbTravel = view.findViewById(R.id.cb_travel);
-            final CheckBox cbMusic = view.findViewById(R.id.cb_music);
-            final CheckBox cbFood = view.findViewById(R.id.cb_food);
-            Button button_reset = view.findViewById(R.id.btn_reset);
-            Button button_submit = view.findViewById(R.id.btn_submit);
+            final EditText nick_name_modify = view.findViewById(R.id.i8_nick_name_modify);
+            final EditText password_modify = view.findViewById(R.id.i8_pass_modify);
+            final EditText again_password_modify = view.findViewById(R.id.i8_pass_again_modify);
+            final EditText age_modify = view.findViewById(R.id.i8_age_modify);
+            final EditText height_modify = view.findViewById(R.id.i8_height_modify);
+            final EditText weight_modify = view.findViewById(R.id.i8_weight_modify);
+            final EditText car_plate_modify = view.findViewById(R.id.i8_car_plate_modify);
+            final EditText car_age_modify = view.findViewById(R.id.i8_car_age_modify);
+
+            Button button_reset = view.findViewById(R.id.i8_reset_modify);
+            Button button_submit = view.findViewById(R.id.i8_confirm_modify);
 
 //控件点击监听
 
@@ -205,14 +199,14 @@ public class MainActivity extends AppCompatActivity
             button_reset.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    edtUsername.setText("");
-                    edtPassword.setText("");
-                    edtPhone.setText("");
-                    edtEmail.setText("");
-                    rbMale.setChecked(true);
-                    cbTravel.setChecked(false);
-                    cbMusic.setChecked(false);
-                    cbFood.setChecked(false);
+                    nick_name_modify.setText("");
+                    password_modify.setText("");
+                    again_password_modify.setText("");
+                    age_modify.setText("");
+                    height_modify.setText("");
+                    weight_modify.setText("");
+                    car_plate_modify.setText("");
+                    car_age_modify.setText("");
                 }
             });
 //              提交按钮
@@ -220,42 +214,27 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onClick(View v) {
                     /* 获取用户设置的信息 */
-                    // 获取用户名
-                    String username = edtUsername.getText().toString().trim();
+                    // 获取昵称
+                    String nick_name_m = nick_name_modify.getText().toString().trim();
                     // 获取密码
-                    String password = edtPassword.getText().toString().trim();
-                    // 获取电话
-                    String phone = edtPhone.getText().toString().trim();
-                    // 获取邮箱
-                    String email = edtEmail.getText().toString().trim();
-                    // 获取性别
-                    String gender = ((RadioButton) view.findViewById(rgGender.getCheckedRadioButtonId())).getText().toString();
-                    // 获取兴趣
-                    StringBuilder builder = new StringBuilder();
-                    if (cbTravel.isChecked()) {
-                        builder.append(cbTravel.getText().toString() + " ");
-                    }
-                    if (cbMusic.isChecked()) {
-                        builder.append(cbMusic.getText().toString() + " ");
-                    }
-                    if (cbFood.isChecked()) {
-                        builder.append(cbFood.getText().toString());
-                    }
-                    String hobby = builder.toString().trim();
-
-                    // 在当前窗口显示注册信息
-                    String regInfo = username + "\n" + password + "\n" + phone + "\n" + email + "\n" + gender + "\n" + hobby;
+                    String password_m = password_modify.getText().toString().trim();
+                    // 获取年龄
+                    String age_m = age_modify.getText().toString().trim();
+                    // 获取身高
+                    String height_m = height_modify.getText().toString().trim();
+                    // 获取体重
+                    String weight_m = weight_modify.getText().toString().trim();
+                    // 获取车牌号
+                    String car_plate_m = car_plate_modify.getText().toString().trim();
+                    // 获取车龄
+                    String car_age_m = car_age_modify.getText().toString().trim();
 
                     // 创建意图，从MainActivity跳转到ResultActivity    第二个参数为跳转页面
                     Intent intent = new Intent(MainActivity.this, MainActivity.class);
                     // 创建数据包封装用户要提交的数据
                     Bundle data = new Bundle();
-                    data.putString("username", username);
-                    data.putString("password", password);
-                    data.putString("phone", phone);
-                    data.putString("email", email);
-                    data.putString("gender", gender);
-                    data.putString("hobby", hobby);
+                    data.putString("nickname", nick_name_m);
+//                  。。。。。。
                     // 将数据包作为意图的附加数据
                     intent.putExtras(data);
                     // 按意图启动组件
@@ -276,6 +255,10 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+//    图表相关
     public void chart(){
         LineChart lineChart = (LineChart) findViewById(R.id.chart);
         ArrayList<Entry> entries = new ArrayList<>();

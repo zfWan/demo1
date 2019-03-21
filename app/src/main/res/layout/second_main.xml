@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,6 +19,7 @@
         android:layout_gravity="top"
         android:gravity="left"
         android:textColor="#d23e8f"
+        android:textStyle="bold"
         android:text="@string/title_health_head"
         android:layout_marginBottom="7dp"
         />
@@ -129,15 +129,65 @@
             android:ems="1"
             android:layout_weight="1"
             android:text="@string/jingzhui" />
-        <TextView
+        <TableLayout
             android:background="@drawable/textview_border"
-            android:id="@+id/textView_health_22"
+            android:collapseColumns="2"
             android:layout_width="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
             android:layout_height="match_parent"
-            android:layout_weight="0.3"
-            android:hint="@string/relative_datas" />
+            android:layout_gravity="center"
+            android:layout_weight="0.3">
+            <TableRow
+                android:layout_marginLeft="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="风险等级:"
+                    android:background="@drawable/border_bottom"
+                    android:gravity="center_vertical"
+                    android:textColor="#52c8af"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="建议措施"
+                    android:gravity="center_vertical"
+                    android:textColor="#c8b452"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginLeft="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <!--红黄绿   高中低-->
+                <!--红 #FF0000   黄  #FBFF00   绿  #00CE7E -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="低"
+                    android:background="#00CE7E"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:minWidth="90sp"
+                    android:maxWidth="90sp"
+                    android:text="多活动颈椎"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+            </TableRow>
+        </TableLayout>
     </LinearLayout>
 
 
@@ -146,9 +196,7 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ebebeb"
-        android:layout_marginBottom="0dp">
+        android:layout_height="wrap_content">
 
         <TextView
             android:background="@drawable/textview_border"
@@ -161,15 +209,64 @@
             android:ems="1"
             android:layout_weight="1"
             android:text="@string/breath_pine" />
-        <TextView
+
+        <TableLayout
             android:background="@drawable/textview_border"
-            android:id="@+id/textView_health_32"
+            android:collapseColumns="2"
             android:layout_width="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
             android:layout_height="match_parent"
-            android:layout_weight="0.3"
-            android:hint="@string/lung_pneumonia" />
+            android:layout_gravity="center"
+            android:layout_weight="0.3">
+            <TableRow
+                android:layout_marginLeft="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="风险等级:"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border_bottom"
+                    android:textColor="#52c8af"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="建议措施"
+                    android:gravity="center_vertical"
+                    android:textColor="#c8b452"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginLeft="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <!--红黄绿   高中低-->
+                <!--红 #FF0000   黄  #FBFF00   绿  #00CE7E -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="高"
+                    android:background="#FF0000"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="建议多开车窗"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+            </TableRow>
+        </TableLayout>
     </LinearLayout>
 
 
@@ -178,8 +275,7 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp">
+        android:layout_height="wrap_content">
 
         <TextView
             android:background="@drawable/textview_border"
@@ -192,15 +288,64 @@
             android:ems="1"
             android:layout_weight="1"
             android:text="@string/wait" />
-        <TextView
+
+        <TableLayout
             android:background="@drawable/textview_border"
-            android:id="@+id/textView_health_42"
+            android:collapseColumns="2"
             android:layout_width="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
             android:layout_height="match_parent"
-            android:layout_weight="0.3"
-            android:hint="@string/wait" />
+            android:layout_gravity="center"
+            android:layout_weight="0.3">
+            <TableRow
+                android:layout_marginLeft="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="风险等级:"
+                    android:background="@drawable/border_bottom"
+                    android:gravity="center_vertical"
+                    android:textColor="#52c8af"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="建议措施"
+                    android:gravity="center_vertical"
+                    android:textColor="#c8b452"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginLeft="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <!--红黄绿   高中低-->
+                <!--红 #FF0000   黄  #FBFF00   绿  #00CE7E -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="中"
+                    android:background="#FBFF00"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="建议多开车窗"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+            </TableRow>
+        </TableLayout>
     </LinearLayout>
 </LinearLayout>
 

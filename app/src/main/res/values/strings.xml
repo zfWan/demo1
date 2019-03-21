@@ -13,27 +13,34 @@
     <string name="title_notifications">精选</string>
 
     <!--健康页面字符串配置-->
-    <string name="title_health_head">健康保护与疾病预防</string>
-    <string name="personal_medical_history">个人病历</string>
+    <string name="title_health_head">阶段性健康分析</string>
+    <string name="personal_medical_history">个人病史</string>
     <string name="diabetes">糖尿病</string>
     <string name="heart_disease">心脏病</string>
     <string name="High_blood_pressure">高血压</string>
     <string name="wait">等等</string>
     <string name="jingzhui">颈椎</string>
-    <string name="relative_datas">相关数据采集</string>
     <string name="breath_pine">呼吸</string>
-    <string name="lung_pneumonia">肺炎等等</string>
 
     <!--精选页面字符串配置-->
-    <string name="title_more_head">更多功能</string>
+    <string name="title_more_head1">健康助手</string>
+    <string name="title_more_head2">第三方合作</string>
+    <string name="test_self">健康自测</string>
+    <string name="health_sports_instruct">健康运动指导</string>
+    <string name="diet">饮食推荐</string>
+
+    <string name="doctor_online">在线医生</string>
+    <string name="dirve_helper">代驾查询</string>
+    <string name="guahao_online">在线挂号</string>
 
 
     <!--个人信息管理页面字符串配置-->
     <string name="title">注册个人信息</string>
-    <string name="username">用户名：</string>
-    <string name="input_username">请输入用户名</string>
+    <string name="username">昵称：</string>
+    <string name="input_username">请输入昵称</string>
     <string name="password">密码：</string>
     <string name="input_password">请输入密码</string>
+    <string name="input_again_password">请输入密码</string>
     <string name="phone">电话：</string>
     <string name="input_phone">请输入电话号码</string>
     <string name="email">邮箱：</string>
@@ -54,5 +61,8 @@
     <string name="accountRegister_input_password_again_hint">请再次输入密码</string>
     <string name="login">登录</string>
     <string name="accountLogin_input_name_hint">请输入帐号</string>
+
+    <!--第一次注册个人信息完善页面信息字符串配置-->
+
 
 </resources>

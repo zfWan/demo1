@@ -12,6 +12,12 @@
     android:orientation="vertical"
     android:layout_marginBottom="70dp">
 
+    <!--健康助手-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
     <!--标题栏-->
     <TextView
         android:id="@+id/message2"
@@ -20,42 +26,103 @@
         android:layout_gravity="top"
         android:gravity="left"
         android:textColor="#d23e8f"
-        android:text="@string/title_more_head"
+        android:text="@string/title_more_head1"
         android:layout_marginBottom="7dp"
         />
 
     <TextView
         android:background="@drawable/textview_border"
-        android:drawableLeft="@mipmap/mor"
+        android:drawableLeft="@mipmap/test"
         android:drawableRight="@mipmap/right"
         android:id="@+id/textView_more_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:ems="1"
-        android:text="@string/wait" />
+        android:layout_weight="1"
+        android:text="@string/test_self" />
 
     <TextView
         android:background="@drawable/textview_border"
-        android:drawableLeft="@mipmap/mor"
+        android:drawableLeft="@mipmap/instruct"
         android:drawableRight="@mipmap/right"
         android:id="@+id/textView_more_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:ems="1"
-        android:text="@string/wait" />
+        android:layout_weight="1"
+        android:text="@string/health_sports_instruct" />
 
         <TextView
             android:background="@drawable/textview_border"
-            android:drawableLeft="@mipmap/mor"
+            android:drawableLeft="@mipmap/diet"
             android:drawableRight="@mipmap/right"
             android:id="@+id/textView_more_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:ems="1"
-            android:text="@string/wait" />
+            android:layout_weight="1"
+            android:text="@string/diet" />
+
+    </LinearLayout>
+
+
+    <!--第三方功能接入-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <!--标题栏-->
+    <TextView
+        android:id="@+id/message3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:gravity="left"
+        android:textColor="#d23e8f"
+        android:text="@string/title_more_head2"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="7dp"
+        />
+    <TextView
+        android:background="@drawable/textview_border"
+        android:drawableLeft="@mipmap/doctor_online"
+        android:drawableRight="@mipmap/right"
+        android:id="@+id/textView_more_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:ems="1"
+        android:layout_weight="1"
+        android:text="@string/doctor_online" />
+
+    <TextView
+        android:background="@drawable/textview_border"
+        android:drawableLeft="@mipmap/help_drive"
+        android:drawableRight="@mipmap/right"
+        android:id="@+id/textView_more_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:ems="1"
+        android:layout_weight="1"
+        android:text="@string/dirve_helper" />
+
+    <TextView
+        android:background="@drawable/textview_border"
+        android:drawableLeft="@mipmap/guahao"
+        android:drawableRight="@mipmap/right"
+        android:id="@+id/textView_more_6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:ems="1"
+        android:layout_weight="1"
+        android:text="@string/guahao_online" />
+    </LinearLayout>
 </LinearLayout>
 
 

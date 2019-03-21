@@ -44,6 +44,41 @@
 
         </LinearLayout>
 
+        <!--输入昵称-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="@dimen/I8d14"
+            android:background="@drawable/i8_login_line_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/nick_name" />
+
+
+            <EditText
+                android:id="@+id/i8_accountRegister_nickName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:ems="10"
+                android:hint="请输入用户昵称"
+                android:inputType="textPersonName"
+                android:maxLength="15"
+                android:singleLine="true"
+                android:textColor="@color/i8_light_black"
+                android:textColorHint="@color/i8_login_edit_hint"
+                android:textSize="@dimen/i8_edit_text_size_16" />
+
+        </LinearLayout>
+
+        <!--输入注册密码-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/I8d44"
@@ -85,6 +120,39 @@
                 android:text=""
                 android:textOff=""
                 android:textOn="" />
+
+        </LinearLayout>
+
+        <!--再次输入密码-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/I8d44"
+            android:layout_marginTop="@dimen/I8d14"
+            android:background="@drawable/i8_login_line_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/I8d10"
+                android:layout_marginRight="@dimen/I8d10"
+                android:src="@drawable/i8_login_password" />
+
+            <EditText
+                android:id="@+id/i8_accountRegister_again_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:ems="10"
+                android:hint="请再次输入密码"
+                android:maxLength="16"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:textColor="@color/i8_light_black"
+                android:textColorHint="@color/i8_login_edit_hint"
+                android:textSize="@dimen/i8_edit_text_size_16" />
 
         </LinearLayout>
 

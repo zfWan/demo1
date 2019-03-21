@@ -7,6 +7,7 @@
 
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_marginBottom="0dp"
 
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
@@ -35,27 +36,24 @@
             <com.timqi.sectorprogressview.ColorfulRingProgressView
                 android:layout_marginLeft="20dp"
                 android:id="@+id/zanshi"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
                 app:bgColor="#e1e1e1"
                 app:fgColorEnd="#ff4800"
                 app:fgColorStart="#ffe400"
                 app:startAngle="0"
-                app:strokeWidth="11dp"
-
-                />
+                app:strokeWidth="11dp" />
             <com.timqi.sectorprogressview.ColorfulRingProgressView
                 android:id="@+id/zanshi2"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
                 android:layout_marginLeft="20dp"
                 app:bgColor="#e1e1e1"
                 app:fgColorEnd="#ff4800"
                 app:fgColorStart="#ffe400"
                 app:startAngle="0"
                 app:strokeWidth="11dp"
-                android:layout_marginHorizontal="25dp"
-                />
+                android:layout_marginHorizontal="25dp" />
 
         </TableRow>
 
@@ -195,35 +193,14 @@
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="1、横向ListView的所有实现思路;2、其中一个最通用的思路HorizontalListView，并基于横向ListView开发一个简单的相册；
-这是使用Fragment最简单的一种方式，把Fragment当成普通的控件，直接写在Activity的布局文件中。步骤：
-
-- 继承Fragment，重写onCreateView决定Fragemnt的布局
-
-- 在Activity中声明此Fragment，就当和普通的View一样
-
-使用2个Fragment作为Activity的布局，一个Fragment用于标题布局，一个Fragment用于内容布局
-
-1、新建项目Fragments3
-
-创建一个Fragment类TitleFragment.java（与之前相同）， 为Fragment创建布局文件fragment_title.xml
----------------------
-作者：飘渺仙缘
-来源：CSDN
-原文：https://blog.csdn.net/gumufuyun/article/details/83243080
-版权声明：本文为博主原创文章，转载请附上博文链接！1、横向ListView的所有实现思路;
-
-2、其中一个最通用的思路HorizontalListView，并基于横向ListView开发一个简单的相册；
-
-3、实现的横向ListView在点击、浏览时item背景会变色，并解决了listview里setSelected造成item的选择状态混乱的问题。
-
-众所周知，ListView默认的方向是垂直的，但有些时候人们更喜欢横向ListView。纵观整个网络，横向ListView的实现思路如下:
----------------------
-作者：yanzi1225627
-来源：CSDN
-原文：https://blog.csdn.net/yanzi1225627/article/details/21294553
-版权声明：本文为博主原创文章，转载请附上博文链接！
-"
+            android:text="曲曲折折的荷塘上面，弥望⑷的是田田⑸的叶子。叶子出水很高，像亭亭的舞女的裙。层层的叶子中间，零星地点缀着些白花，有袅娜⑹地开着的
+            ，有羞涩地打着朵儿的；正如一粒粒的明珠，又如碧天里的星星，又如刚出浴的美人。微风过处，送来缕缕清香，仿佛远处高楼上渺茫的歌声似的。这时候叶子与
+            花也有一丝的颤动，像闪电般，霎时传过荷塘的那边去了。叶子本是肩并肩密密地挨着，这便宛然有了一道凝碧的波痕。叶子底下是脉脉⑺的流水，遮住了，不能
+            见一些颜色；而叶子却更见风致⑻了。
+            曲曲折折的荷塘上面，弥望⑷的是田田⑸的叶子。叶子出水很高，像亭亭的舞女的裙。层层的叶子中间，零星地点缀着些白花，有袅娜⑹地开着的
+            ，有羞涩地打着朵儿的；正如一粒粒的明珠，又如碧天里的星星，又如刚出浴的美人。微风过处，送来缕缕清香，仿佛远处高楼上渺茫的歌声似的。这时候叶子与
+            花也有一丝的颤动，像闪电般，霎时传过荷塘的那边去了。叶子本是肩并肩密密地挨着，这便宛然有了一道凝碧的波痕。叶子底下是脉脉⑺的流水，遮住了，不能
+            见一些颜色；而叶子却更见风致⑻了。"
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
