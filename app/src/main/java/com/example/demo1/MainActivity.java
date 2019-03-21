@@ -13,18 +13,24 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.swipe.SwipeLayout;
+import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
@@ -125,6 +131,18 @@ public class MainActivity extends AppCompatActivity
                 chartxinlv();
             }
         });
+
+
+        RecyclerView swipeLayout =  (RecyclerView)findViewById(R.id.sample1);
+        List<String> list=new ArrayList<>();
+        for(int i=0;i<5;i++){
+            list.add("多喝热水"+(i+1));
+        }
+        list.add("喝什么喝睡觉了");
+        SwipeLayout swipeLayout2=(SwipeLayout)findViewById(R.id.swipe_layout) ;
+        MyRecyclerViewAdapter myRecyclerViewAdapter=new MyRecyclerViewAdapter(this,list);
+        swipeLayout.setLayoutManager(new LinearLayoutManager(this));
+        swipeLayout.setAdapter(myRecyclerViewAdapter);
     }
 
     @Override
@@ -454,5 +472,65 @@ public class MainActivity extends AppCompatActivity
             }
         });
         builder.show();
+    }
+
+    public class MyRecyclerViewAdapter extends RecyclerSwipeAdapter<MyRecyclerViewAdapter.MyViewHolder> {
+        private Context context;
+        private List<String> list;
+        public MyRecyclerViewAdapter(Context context, List<String> list) {
+            this.context = context;
+            this.list = list;
+        }
+        @Override
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter, parent, false);
+            return new MyViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(final MyViewHolder viewHolder, final int position) {
+            viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
+            viewHolder.surface.setText(list.get(position));
+            viewHolder.bottom.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    list.remove(position);
+                    notifyDataSetChanged();
+                }
+            });
+            viewHolder.mark.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return list.size();
+        }
+
+        @Override
+        public int getSwipeLayoutResourceId(int position) {
+            return position;
+        }
+
+        public  class MyViewHolder extends RecyclerView.ViewHolder{
+            private SwipeLayout swipeLayout;
+            private TextView bottom;
+            private TextView surface;
+            private TextView mark;
+            public LinearLayout surf;
+            public MyViewHolder(View itemView) {
+                super(itemView);
+                swipeLayout=(SwipeLayout)itemView.findViewById(R.id.swipe_layout);
+                bottom=(TextView)itemView.findViewById(R.id.bottom);
+                surface=(TextView)itemView.findViewById(R.id.surface);
+                mark=(TextView)itemView.findViewById(R.id.mark);
+
+
+            }
+        }
     }
 }

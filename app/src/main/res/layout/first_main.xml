@@ -7,7 +7,6 @@
 
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:layout_marginBottom="0dp"
 
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
@@ -36,24 +35,27 @@
             <com.timqi.sectorprogressview.ColorfulRingProgressView
                 android:layout_marginLeft="20dp"
                 android:id="@+id/zanshi"
-                android:layout_width="130dp"
-                android:layout_height="100dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 app:bgColor="#e1e1e1"
                 app:fgColorEnd="#ff4800"
                 app:fgColorStart="#ffe400"
                 app:startAngle="0"
-                app:strokeWidth="11dp" />
+                app:strokeWidth="11dp"
+
+                />
             <com.timqi.sectorprogressview.ColorfulRingProgressView
                 android:id="@+id/zanshi2"
-                android:layout_width="130dp"
-                android:layout_height="100dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginLeft="20dp"
                 app:bgColor="#e1e1e1"
                 app:fgColorEnd="#ff4800"
                 app:fgColorStart="#ffe400"
                 app:startAngle="0"
                 app:strokeWidth="11dp"
-                android:layout_marginHorizontal="25dp" />
+                android:layout_marginHorizontal="25dp"
+                />
 
         </TableRow>
 
@@ -180,31 +182,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <android.support.v7.widget.RecyclerView
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="fill_parent"
-        android:layout_height="250dp"
-        android:scrollbarStyle="outsideOverlay" android:background="@android:drawable/edit_text">
-        <TextView
-            android:id="@+id/tips"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="曲曲折折的荷塘上面，弥望⑷的是田田⑸的叶子。叶子出水很高，像亭亭的舞女的裙。层层的叶子中间，零星地点缀着些白花，有袅娜⑹地开着的
-            ，有羞涩地打着朵儿的；正如一粒粒的明珠，又如碧天里的星星，又如刚出浴的美人。微风过处，送来缕缕清香，仿佛远处高楼上渺茫的歌声似的。这时候叶子与
-            花也有一丝的颤动，像闪电般，霎时传过荷塘的那边去了。叶子本是肩并肩密密地挨着，这便宛然有了一道凝碧的波痕。叶子底下是脉脉⑺的流水，遮住了，不能
-            见一些颜色；而叶子却更见风致⑻了。
-            曲曲折折的荷塘上面，弥望⑷的是田田⑸的叶子。叶子出水很高，像亭亭的舞女的裙。层层的叶子中间，零星地点缀着些白花，有袅娜⑹地开着的
-            ，有羞涩地打着朵儿的；正如一粒粒的明珠，又如碧天里的星星，又如刚出浴的美人。微风过处，送来缕缕清香，仿佛远处高楼上渺茫的歌声似的。这时候叶子与
-            花也有一丝的颤动，像闪电般，霎时传过荷塘的那边去了。叶子本是肩并肩密密地挨着，这便宛然有了一道凝碧的波痕。叶子底下是脉脉⑺的流水，遮住了，不能
-            见一些颜色；而叶子却更见风致⑻了。"
-
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-    </ScrollView>
-
+        android:id="@+id/sample1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>
